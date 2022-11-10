@@ -1,0 +1,49 @@
+<HTML>
+<BODY>
+<H2>Purpose</H2>
+The purpose of this assignment is to illustrate the use of interrupts in a
+computer program, and to understand the mechanisms for executing an
+interrupt.
+<H2>Points</H2>
+This project is worth 100 points.
+<H2>Description</H2>
+In this homework assignment, you are going to apply simple interrupts to
+a program that calculate fibbinnoci numbers.  You will set a timer interrupt 
+to go off every 100 microseconds, and count the number of times it actually
+occurs.  By counting the number of interrupts that occur, you get a rough idea
+of how long the program takes to calculate each fibbonacci number.<BR><BR>
+
+The basic program to calculate
+these numbers is in <A HREF="fib.c">fib.c</A>.  Using ualarm 
+to set a 100
+microsecond alarm clock interrupt, and using sigset to assign your own
+interrupt vector for SIGALRM interrupts.
+<H2>Hints</H2>
+<LIST>
+<LI>CTRL-C stops a program that is running.  In the first example, I override
+the behavior of CTRL-C, so you cannot kill the program in that manner.
+If you really screw up, get the PID, and type <I>kill -9 PID</I> (where obvioiusly
+the PID is the process id, NOT PID).  You can also type CTRL-Z, which
+will background the process, and if you then log out it will go away, but this
+is not recommended.
+<LI>Please do this assignment in Linux.  Yes, I know you CAN make it work on Windows
+and MAC.  But if you are installing compilers on Windows to do this, you either 
+already know all of this, or you probably have more guts than common sense or
+brains.  MAC has different librarys, and I believe they are pushing you to
+be POSIX complaint.  In either case, you are on your own, I will not answer any
+pleas for help.
+
+<LI>A program that uses the sigset function for SIGINT (control-c) is given
+in <A HREF="sigint.c">sigint.c</A>
+<LI> You can use gcc, cc, or g++ to do this assignment.  The easiest way to 
+compile this program is to type "make sigint" and "make fib".  This will make
+the sigint.c program to show the interrupts, and the fib program that you are 
+to put the timer in.  If you want to change the compiler, use the CC 
+environment variable to specify the compiler you want to use.  If you have to
+ask how to do this, you probably shouldn't do it. 
+<LI>There are man (manual) pages for the cc, sigset, and ualarm 
+functions.  To get man pages, type "man <I>command</I>", for 
+example man sigset, at the unix prompt.
+</LIST>
+</BODY>
+</HTML>
